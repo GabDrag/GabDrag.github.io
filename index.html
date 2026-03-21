@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Andrew & Gaby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Password Gate -->
+    <div id="password-gate">
+        <div class="gate-content">
+            <p class="gate-label">Enter password to continue</p>
+            <form id="password-form">
+                <input type="password" id="password-input" class="gate-input" placeholder="Password" autocomplete="off">
+                <button type="submit" class="gate-button">Enter</button>
+            </form>
+            <p id="password-error" class="gate-error">Incorrect password</p>
+        </div>
+    </div>
+    <style>
+        body.locked { overflow: hidden; }
+        #password-gate {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #f5f0eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.3s ease;
+        }
+        .gate-content { text-align: center; }
+        .gate-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #2d4a47;
+            margin-bottom: 1.5rem;
+        }
+        .gate-input {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #2d4a47;
+            background: #fff;
+            width: 200px;
+            text-align: center;
+        }
+        .gate-input:focus { outline: 2px solid #c4785d; border-color: transparent; }
+        .gate-button {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: #2d4a47;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gate-button:hover { background: #c4785d; }
+        .gate-error {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            color: #c4785d;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+    <script src="auth.js"></script>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">A & G</a>
+        <div class="nav-links">
+            <a href="faq.html">FAQ</a>
+            <a href="rsvp.html" class="nav-rsvp">RSVP</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-tag">An Event is occurring</p>
+            <h1 class="hero-names">
+                <span>Andrew</span>
+                <span class="amp">and</span>
+                <span>Gaby</span>
+            </h1>
+            <div class="hero-meta">
+                <div class="hero-meta-item">
+                    <span class="label">Date</span>
+                    Saturday, August 15th, 2026
+                </div>
+                <div class="hero-meta-item">
+                    <span class="label">Location</span>
+                    Washington, DC
+                </div>
+                <div class="hero-meta-item">
+                    <span class="label">Huh? What&rsquo;s this?</span>
+                    An Event and then a Party.
+                </div>
+            </div>
+            <a href="rsvp.html" class="hero-cta">RSVP</a>
+        </div>
+        <div class="hero-photo">
+            <div class="hero-photo-frame">
+                <img src="IMG_8632.jpeg" alt="Andrew and Gaby">
+            </div>
+        </div>
+    </section>
+
+    <div class="content">
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Some Details</h2>
+            </div>
+            <p class="deal-text">
+                There will be an Event and then there will be a Party. We will have <strong>food</strong>,
+                <strong>drinks</strong>, and <strong>dancing</strong>.
+            </p>
+        </section>
+
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Schedule</h2>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">Friday night</span>
+                <div class="schedule-event">
+                    <h3>&ldquo;Hi! Oh, how do you know Andrew and Gaby?&rdquo; kind of drinks</h3>
+                    <p>(For those in town early, come hang)</p>
+                    <span class="venue">Location TBD</span>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">Saturday, 4:00 PM</span>
+                <div class="schedule-event">
+                    <h3>The Event</h3>
+                    <p> Something like a wedding but Gaby wants you to know that it is <strong>not</strong> a wedding.</p>
+                    <span class="venue">Ukraine House — 2134 Kalorama Rd NW, Washington DC</span>
+                </div>
+            </div>
+
+            <div class="callout">
+                We&rsquo;ll be walking from The Event to The Party — about 10 minutes through the neighborhood.
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">Saturday, 7:00 PM</span>
+                <div class="schedule-event">
+                    <h3>The Party</h3>
+                    <p>~Vibes, baby~</p>
+                    <span class="venue">Roofers Union — 2446 18th St NW, Adams Morgan</span>
+                </div>
+            </div>
+
+            <div class="schedule-item">
+                <span class="schedule-time">Late</span>
+                <div class="schedule-event">
+                    <h3>Afterparty</h3>
+                    <p>Something will be figured out, don&rsquo;t you worry.</p>
+                </div>
+            </div>
+
+            <div class="callout">
+                We will also be somewhere on Sunday morning (i.e., Meridian Hill Park) if you&rsquo;d like to come say bye!
+            </div>
+
+        </section>
+    </div>
+
+    <section class="dress-section">
+        <div class="content">
+            <div class="section-header">
+                <h2 class="section-title">Dress Code</h2>
+            </div>
+
+            <p class="dress-main">Chic, August-friendly, comfortable</p>
+            <p class="dress-sub">
+                It&rsquo;ll be hot and humid, so nothing too stuffy. But also, you know, something fun? Whatever you want to wear, it&rsquo;s probably fine.
+            </p>
+        </div>
+    </section>
+
+    <div class="content">
+        <section>
+            <div class="section-header">
+                <h2 class="section-title">Details</h2>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>Getting There</h3>
+                    <p>Metro: Woodley Park is closest. Rideshare recommended if you plan to drink.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Lodging</h3>
+                    <p>Tbd...</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Food</h3>
+                    <p>We&rsquo;ll have dinner! It&rsquo;ll be vegetarian/vegan.</p>
+                </div>
+
+                <div class="info-card">
+                    <h3>Questions?</h3>
+                    <p>Check the <a href="faq.html">FAQ</a> or just shoot us a message.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="rsvp-section">
+            <h2 class="section-title">Let Us Know</h2>
+            <p>Please RSVP by April 15th</p>
+            <a href="rsvp.html" class="rsvp-button">RSVP</a>
+        </section>
+    </div>
+
+    <footer>
+        <p class="footer-sub">See you bozos in August.</p>
+    </footer>
+
+    <div class="easter-egg" id="easter-egg">are you a bozo?</div>
+
+    <div class="bozo-screen" id="bozo-screen">
+        <p class="bozo-text">then you better make an appearance</p>
+    </div>
+
+    <style>
+        .easter-egg {
+            position: fixed;
+            bottom: 8px;
+            right: 12px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 9px;
+            color: #8a5038;
+            cursor: pointer;
+            opacity: 0.4;
+            transition: opacity 0.2s;
+            z-index: 50;
+        }
+        .easter-egg:hover {
+            opacity: 0.7;
+        }
+        .bozo-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.8s ease;
+        }
+        .bozo-screen.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        .bozo-text {
+            font-family: 'Instrument Serif', serif;
+            font-style: italic;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 1.2s ease 0.5s, transform 1.2s ease 0.5s;
+        }
+        .bozo-screen.active .bozo-text {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+
+    <script>
+        const easterEgg = document.getElementById('easter-egg');
+        const bozoScreen = document.getElementById('bozo-screen');
+
+        easterEgg.addEventListener('click', () => {
+            bozoScreen.classList.add('active');
+        });
+
+        bozoScreen.addEventListener('click', () => {
+            bozoScreen.classList.remove('active');
+        });
+    </script>
+
+</body>
+</html>

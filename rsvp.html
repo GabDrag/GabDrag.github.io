@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>RSVP — Andrew & Gaby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Password Gate -->
+    <div id="password-gate">
+        <div class="gate-content">
+            <p class="gate-label">Enter password to continue</p>
+            <form id="password-form">
+                <input type="password" id="password-input" class="gate-input" placeholder="Password" autocomplete="off">
+                <button type="submit" class="gate-button">Enter</button>
+            </form>
+            <p id="password-error" class="gate-error">Incorrect password</p>
+        </div>
+    </div>
+    <style>
+        body.locked { overflow: hidden; }
+        #password-gate {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #f5f0eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.3s ease;
+        }
+        .gate-content { text-align: center; }
+        .gate-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #2d4a47;
+            margin-bottom: 1.5rem;
+        }
+        .gate-input {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #2d4a47;
+            background: #fff;
+            width: 200px;
+            text-align: center;
+        }
+        .gate-input:focus { outline: 2px solid #c4785d; border-color: transparent; }
+        .gate-button {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: #2d4a47;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gate-button:hover { background: #c4785d; }
+        .gate-error {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            color: #c4785d;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+    <script src="auth.js"></script>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">A & G</a>
+        <div class="nav-links">
+            <a href="faq.html">FAQ</a>
+            <a href="rsvp.html" class="nav-rsvp">RSVP</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="content">
+            <a href="index.html" class="back-link">Back</a>
+            <h1>RSVP</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <section class="form-section" id="rsvp-form-section">
+            <form id="rsvp-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Your Name</label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="attending">Will you be attending?</label>
+                    <select id="attending" name="attending" class="form-select" required>
+                        <option value="">Select one</option>
+                        <option value="yes">Yes, I'll be there</option>
+                        <option value="no">Sorry, I can't make it</option>
+                    </select>
+                </div>
+
+                <div id="attending-details" style="display: none;">
+                    <div class="form-group">
+                        <label class="form-label" for="rsvp-partner">Are you also RSVP-ing for your partner?</label>
+                        <select id="rsvp-partner" name="rsvp_partner" class="form-select">
+                            <option value="no">No</option>
+                            <option value="yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group" id="partner-name-group" style="display: none;">
+                        <label class="form-label" for="partner-name">Partner's name</label>
+                        <input type="text" id="partner-name" name="partner_name" class="form-input" placeholder="Your partner's name">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="dietary">Dietary restrictions or allergies</label>
+                        <textarea id="dietary" name="dietary" class="form-textarea" placeholder="Any allergies we should know about?"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="song">Song request</label>
+                        <input type="text" id="song" name="song" class="form-input" placeholder="Name a song which, when you hear it, makes you react like Andrew when he hears Pon de Replay">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="message">Anything else?</label>
+                    <textarea id="message" name="message" class="form-textarea" placeholder="Questions, notes, etc."></textarea>
+                </div>
+
+                <button type="submit" class="form-submit">Submit RSVP</button>
+            </form>
+        </section>
+
+        <div class="success-message" id="success-message">
+            <h2>Got it!</h2>
+            <p>Thanks for letting us know. We'll be in touch if we have any questions.</p>
+            <br><br>
+            <a href="index.html" class="rsvp-button">Back to Home</a>
+        </div>
+    </div>
+
+    <footer>
+        <p class="footer-sub">See you bozos in August.</p>
+    </footer>
+
+    <script>
+        // Show/hide attending details based on selection
+        const attendingSelect = document.getElementById('attending');
+        const attendingDetails = document.getElementById('attending-details');
+
+        attendingSelect.addEventListener('change', function() {
+            if (this.value === 'yes') {
+                attendingDetails.style.display = 'block';
+            } else {
+                attendingDetails.style.display = 'none';
+            }
+        });
+
+        // Show/hide partner name based on selection
+        const partnerSelect = document.getElementById('rsvp-partner');
+        const partnerNameGroup = document.getElementById('partner-name-group');
+
+        partnerSelect.addEventListener('change', function() {
+            if (this.value === 'yes') {
+                partnerNameGroup.style.display = 'block';
+            } else {
+                partnerNameGroup.style.display = 'none';
+            }
+        });
+
+        // Form submission
+        const form = document.getElementById('rsvp-form');
+        const formSection = document.getElementById('rsvp-form-section');
+        const successMessage = document.getElementById('success-message');
+
+        form.addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+            data.timestamp = new Date().toISOString();
+
+            // Replace this URL with your Google Apps Script Web App URL
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwX5RyiWmeBBGc2UFegyL5RFJ4IKFJU5-YwH2skQiHBzESPSRmVAsp-ew92EpbGS7QvfA/exec';
+
+            try {
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                // Since we're using no-cors, we can't read the response
+                // But if we get here without error, assume success
+                formSection.style.display = 'none';
+                successMessage.classList.add('show');
+
+            } catch (error) {
+                console.error('Error:', error);
+                alert('Something went wrong. Please inform us that this form is broken.');
+            }
+        });
+    </script>
+
+</body>
+</html>

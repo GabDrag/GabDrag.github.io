@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>FAQ — Andrew & Gaby</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Password Gate -->
+    <div id="password-gate">
+        <div class="gate-content">
+            <p class="gate-label">Enter password to continue</p>
+            <form id="password-form">
+                <input type="password" id="password-input" class="gate-input" placeholder="Password" autocomplete="off">
+                <button type="submit" class="gate-button">Enter</button>
+            </form>
+            <p id="password-error" class="gate-error">Incorrect password</p>
+        </div>
+    </div>
+    <style>
+        body.locked { overflow: hidden; }
+        #password-gate {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: #f5f0eb;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 99999;
+            transition: opacity 0.3s ease;
+        }
+        .gate-content { text-align: center; }
+        .gate-label {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #2d4a47;
+            margin-bottom: 1.5rem;
+        }
+        .gate-input {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            padding: 0.75rem 1rem;
+            border: 1px solid #2d4a47;
+            background: #fff;
+            width: 200px;
+            text-align: center;
+        }
+        .gate-input:focus { outline: 2px solid #c4785d; border-color: transparent; }
+        .gate-button {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: #2d4a47;
+            color: #fff;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            margin-left: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .gate-button:hover { background: #c4785d; }
+        .gate-error {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            color: #c4785d;
+            margin-top: 1rem;
+            display: none;
+        }
+    </style>
+    <script src="auth.js"></script>
+
+    <nav class="nav">
+        <a href="index.html" class="nav-logo">A & G</a>
+        <div class="nav-links">
+            <a href="faq.html">FAQ</a>
+            <a href="rsvp.html" class="nav-rsvp">RSVP</a>
+        </div>
+    </nav>
+
+    <header class="page-header">
+        <div class="content">
+            <a href="index.html" class="back-link">Back</a>
+            <h1>FAQ</h1>
+        </div>
+    </header>
+
+    <div class="content">
+        <section>
+            <div class="faq-item">
+                <h3 class="faq-question">What time should I arrive?</h3>
+                <p class="faq-answer">
+                    The Event starts at 4:00 PM and will be at Ukraine House in Kalorama, Washington DC. The address is 2134 Kalorama Rd NW, Washington, DC 20008. We recommend arriving 15-20 minutes early. Unless it rains very hard, the Event will be held <strong>Outside!</strong>
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What&rsquo;s the parking situation?</h3>
+                <p class="faq-answer">
+                    Street parking is available but can be competitive. The Woodley Park-Zoo/Adams Morgan metro station is a ~10 minute walk from Ukraine House.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Can I bring a plus one?</h3>
+                <p class="faq-answer">
+                    Your partner is invited :)
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Are kids welcome?</h3>
+                <p class="faq-answer">
+                    Yes for the first part of the day! The Event and Dinner will have a few kids. After dinner, we&rsquo;ll walk together to Roofers Union for The Party, which will be ~for the adults~
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What about dietary restrictions?</h3>
+                <p class="faq-answer">
+                    We&rsquo;ve got you covered. It&rsquo;ll be vegetarian and vegan friendly. Please note any allergies or restrictions on your RSVP!
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is there a hotel block?</h3>
+                <p class="faq-answer">
+                    We&rsquo;re looking into it, oops.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Ugh, we&rsquo;re *walking* between venues?</h3>
+                <p class="faq-answer">
+                    Yeah yeah. (If you have mobility concerns, let us know and we&rsquo;ll arrange a ride!)
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What should I wear?</h3>
+                <p class="faq-answer">
+                    Chic, August-friendly, comfortable. Think somewhere between "nice dinner" and "daytime wedding." When in doubt, think "what would Tom Zanger think looks cool?"
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">Is there an open bar?</h3>
+                <p class="faq-answer">
+                    Duh
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What about gifts?</h3>
+                <p class="faq-answer">
+                    Please no! If you'd like, you're welcome to donate to one of the following charities:
+                    <ul>
+                        <li><a href="">placeholder charity 1</a></li>
+                        <li><a href="">placeholder charity 2</a></li>
+                        <li><a href="">placeholder charity 3</a></li>
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">What's the afterparty vibe?</h3>
+                <p class="faq-answer">
+                    Something like having a gummy and getting confused which uber is for you.
+                </p>
+            </div>
+
+            <div class="faq-item">
+                <h3 class="faq-question">I have another question.</h3>
+                <p class="faq-answer">
+                    Just email us! draganovandrew@gmail.com or gabygalvin@gmail.com (or both!)
+                </p>
+            </div>
+        </section>
+
+        <section class="rsvp-section">
+            <h2 class="section-title">Ready?</h2>
+            <a href="rsvp.html" class="rsvp-button">RSVP</a>
+        </section>
+    </div>
+
+    <footer>
+        <p class="footer-sub">See you bozos in August.</p>
+    </footer>
+
+</body>
+</html>
